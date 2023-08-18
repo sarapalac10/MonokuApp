@@ -6,7 +6,10 @@ import List from "../components/Emotions/List";
 
 const Home = () => (
   <div className="initContainer">
-    <h1>Holi! este es el home</h1>
+    <div>
+      <img className='imagenInicio' src='https://res.cloudinary.com/dez9y1otk/image/upload/v1692334518/MonokuApp/sin-fondo-bg_naihy2.png' alt='fondo-Mood-Master' />
+      <p className="sloganInicio">Emociones bajo control, vida en plenitud</p>
+    </div>
     <hr />
     <Login />
     <List />
