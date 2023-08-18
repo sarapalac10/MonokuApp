@@ -1,0 +1,107 @@
+:root{
+    --black: #020202 ;
+    --white: #FFFFFF;
+    --blueLight: #ADCAD6;
+    --greenMedium: #BAF2BB;
+    --greenLight: #BAF2D8;
+    --blueMedium: #BAD7F2;
+    --pinkMedium: #F2BAC9;
+    --yellowMedium: #F2E2BA
+}
+
+html, body{
+    height:100%;
+    margin:0;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    font-family: 'Fredoka', sans-serif;
+}
+
+/*Fonts*/
+h1{
+    font-size: 33px
+}
+
+h2{
+    font-size: 22px
+}
+
+h3 {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+p{
+    font-size: 12px;
+}
+
+a{
+    text-decoration: none;
+}
+
+/*Inicio */
+.imagen-inicio{
+    width: 200px;
+    margin: auto;
+}
+
+/*Cards*/
+.title-card{
+    text-transform: capitalize;
+}
+
+.container{
+    padding-top: 100px;
+    display: flex;
+    padding:0;
+    margin: 0;
+}
+
+.left-content{
+    flex-basis: 50%;
+}
+.right-content{
+    flex-basis: 50%;
+}
+
+.left-content{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px,0.5fr));
+    grid-gap: 3rem;
+}
+
+.poke-title{
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.btn-group{
+    width: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-form{
+    display: flex;
+    background-color: var(--greyLight);
+    padding: 1rem;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.link-form{
+    font-weight: bold;
+    color: var(--redLight);
+}
+
+.form-control{
+    display: flex;
+    background-color: var(--greyLight);
+    padding: 1rem;
+    border-radius: 10px;
+    width: 100%;
+}

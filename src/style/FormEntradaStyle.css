@@ -1,0 +1,57 @@
+.entradas{
+    margin: 1rem 0 1rem;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.entradaIndividual{
+    margin: 1rem 0 0.5rem;
+    padding: 0.5 rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    background-color: #ffff;
+}
+
+.tituloEntrada{
+    font-weight: bold;
+    padding: 0.5 rem;
+}
+
+.cuerpoEntrada{
+    padding: 1rem;
+    font-weight: normal;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form label {
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.form>div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.form [type="submit"]{
+    border-radius: 5px;
+    background-color: var(--blueMedium);
+    color: #ffff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.divEntrada{
+    width: min(100%, 600px);
+    margin: 0 auto;
+}

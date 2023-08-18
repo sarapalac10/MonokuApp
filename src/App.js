@@ -1,25 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Spinner from 'react-bootstrap/Spinner';
+import './style/BasicStyle.css';
 
-function App() {
+import Profile from './views/Profile';
+import { useAuth0 } from "@auth0/auth0-react";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
+import Home from './views/Home';
+import Footer from './components/Footer';
+import Navbar from './components/Navbar';
+import Registros from './views/Registros';
+
+const App = () => {
+  const { isLoading, error } = useAuth0();
+
+  if (error) {
+    return <div>Oops... {error.message}</div>;
+  }
+
+  if (isLoading) {
+    return(
+      <Spinner animation="border" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </Spinner>
+    )
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="initContainer">
+        <Navbar />
+        <>
+          <Routes>
+            <Route path="/" exact element={<Home/>} />
+            <Route path="/profile" exact element={<Profile/>} />
+            <Route path="/registros" exact element={<Registros/>} />
+            {/* <Route path="/" exact element={</>} /> */}
+          </Routes>
+        </>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
+
 }
 
 export default App;
