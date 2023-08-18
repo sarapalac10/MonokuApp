@@ -25,4 +25,9 @@
   text-align: center;
   text-transform: capitalize;
   letter-spacing: 0.5px;
+  font-style: italic;
+  text-shadow:
+    0 0 1em rgb(152, 152, 193),
+    0 0 0.2em blue;
+    color: #97D9E1;
 }

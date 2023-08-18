@@ -1,67 +1,56 @@
+import '../style/NavbarStyle.css';
 import React, { useState } from 'react'
-import Nav from 'react-bootstrap/Nav';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFileLines, faCalendarDays, faUser, faChartLine,  faHouse } from '@fortawesome/free-solid-svg-icons'
-import { slide as Menu } from 'react-burger-menu';
-import { FaBars } from 'react-icons/fa';
 
 const elementRegistro = <FontAwesomeIcon icon={faFileLines} />
-const elementCalendario = <FontAwesomeIcon icon={faCalendarDays} />
+// const elementCalendario = <FontAwesomeIcon icon={faCalendarDays} />
 const elementUser = <FontAwesomeIcon icon={faUser} />
 const elementEstadistica = <FontAwesomeIcon icon={faChartLine} />
 const elementInicio = <FontAwesomeIcon icon={faHouse} />
 
-function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  const handleMenuToggle = () => {
-    setMenuOpen(!menuOpen);
-  };
-
+export default function Navbar() {
+  const [isNavExpanded, setIsNavExpanded] = useState(false)
   return (
-    <header className="App-header">
-      <div className="navbar">
-        <FaBars className="menu-icon" onClick={handleMenuToggle} />
+    <nav className="navigation">
+      <a href="/" className="brand-name">
+        Mood Master
+      </a>
+      <button
+        className="hamburger"
+        onClick={() => {
+          setIsNavExpanded(!isNavExpanded);
+        }}
+        >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-5 w-5"
+          viewBox="0 0 20 20"
+          fill="white"
+        >
+          <path
+            fillRule="evenodd"
+            d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
+            clipRule="evenodd"
+          />
+        </svg>
+      </button>
+      <div className={isNavExpanded ? "navigation-menu expanded" : "navigation-menu" }>
+        <ul>
+          <li>
+            <a href="/home">Inicio {elementInicio}</a>
+          </li>
+          <li>
+            <a href="/registros">Registros {elementRegistro}</a>
+          </li>
+          <li>
+            <a href="/">Estadísticas {elementEstadistica}</a>
+          </li>
+          <li>
+            <a href="/profile">Perfil {elementUser}</a>
+          </li>
+        </ul>
       </div>
-      <Menu isOpen={menuOpen} customBurgerIcon={false}>
-        <Nav.Link href="/">Inicio {elementInicio}</Nav.Link>
-        <Nav.Link href="/registros">Registros {elementRegistro}</Nav.Link>
-        <Nav.Link eventKey="link-1">Estadísticas {elementEstadistica}</Nav.Link>
-        <Nav.Link eventKey="link-2">Calendario {elementCalendario}</Nav.Link>
-        <Nav.Link href="/profile" eventKey="link-2">Perfil {elementUser}</Nav.Link>
-      </Menu>
-    </header>
+    </nav>
   );
 }
-
-export default Navbar;
-
-// function Navbar() {
-//   const [menuOpen, setMenuOpen] = useState(false);
-
-//   const handleMenuToggle = () => {
-//     setMenuOpen(!menuOpen);
-//   };
-
-//     return (
-//       <div className="App">
-//         <header className="App-header">
-//           <div className="navbar">
-//             <FaBars className="menu-icon" onClick={handleMenuToggle} />
-//             <h1>Responsive Navbar</h1>
-//           </div>
-//           <Menu isOpen={this.state.menuOpen} customBurgerIcon={false}>
-//             <Nav.Link href="/">Inicio {elementInicio}</Nav.Link>
-//             <Nav.Link href="/registros">Registros {elementRegistro}</Nav.Link>
-//             <Nav.Link eventKey="link-1">Estadísticas {elementEstadistica}</Nav.Link>
-//             <Nav.Link eventKey="link-2">Calendario {elementCalendario}</Nav.Link>
-//             <Nav.Link href="/profile" eventKey="link-2">Perfil {elementUser}</Nav.Link>
-//             <a href="/contact" className="menu-item">Contact</a>
-//           </Menu>
-//         </header>
-//       </div>
-//     );
-//   }
-
-
-// export default Navbar
