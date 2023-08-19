@@ -9,6 +9,7 @@ import Home from './views/Home';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import Registros from './views/Registros';
+import Estadistica from './views/Estadistica';
 
 const App = () => {
   const { isLoading, error } = useAuth0();
@@ -34,6 +35,7 @@ const App = () => {
             <Route path="/" exact element={<Home/>} />
             <Route path="/profile" exact element={<Profile/>} />
             <Route path="/registros" exact element={<Registros/>} />
+            <Route path="/estadistica" exact element={<Estadistica/>} />
             {/* <Route path="/" exact element={</>} /> */}
           </Routes>
         </>

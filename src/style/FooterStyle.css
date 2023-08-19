@@ -1,10 +1,13 @@
-.footer p {
-	font-size: 12px;
-    color: var(--greenLight);
+.footer {
+    width: 100%;
+    background-color:var(--pinkColor);
+    position: absolute;
+    bottom: 0px;
+    display: flex;
+    justify-content: center
 }
 
-.footer-padding {
-	padding: 1rem;
-    width: 100%;
-    text-align: center;
+.footer p {
+	font-size: 1rem;
+    color: var(--white);
 }

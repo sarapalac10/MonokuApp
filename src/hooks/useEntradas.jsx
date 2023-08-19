@@ -1,40 +1,48 @@
-import { useState, useEffect } from "react";
-
-const LOCALSTORAGE_KEY = 'MIAPP.list'
+import { useEffect, useState } from "react";
+import { supabase } from '../utils/api'
+import { createReview } from "../utils/chat";
 
 function useEntradas(){
     const [entradas, setEntradas] = useState([]);
 
     useEffect(() => {
-        let localStorageSavedEntradas = localStorage.getItem(LOCALSTORAGE_KEY)
-      if(localStorageSavedEntradas){
-        setEntradas(
-            JSON.parse(localStorageSavedEntradas)
-        )
-      }
+      getAll()
     }, [])
 
-    useEffect(() => {
-        if(!entradas || entradas.length === 0) return
-      localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(entradas))
+    function getAll() {
+      supabase.from('emotion-entries').select().order('id').then(({data}, error) => {
+        console.log('Data: ', data)
+        console.log('Error: ', error)
+        setEntradas(data)
+      })
+    }
 
-    }, [entradas])
-
-    function add(title, message, date){
-        const id= Date.now();
-        const entradaObj = { title, message, date, id};
+    function add(title, message, date, emotion) {
+        const entradaObj = { title, message, date, emotion };
+        // createReview(message).then(response => console.log(response))
+        supabase.from('emotion-entries').insert(entradaObj).single().then((data, error) => {
+          console.log('Data: ', data)
+          console.log('Error: ', error)
+        })
         setEntradas([ entradaObj, ...entradas]);
     }
 
     function remove(id){
-      let newEntradas = entradas.filter( entrada => entrada.id !== id);
-      setEntradas(newEntradas)
+      console.log(id)
+      supabase
+        .from('emotion-entries')
+        .delete()
+        .eq('id', id).then(() => {
+          let newEntradas = entradas.filter( entrada => entrada.id !== id);
+          setEntradas(newEntradas)
+        })
     }
 
     return{
         entradas,
         add,
-        remove
+        remove,
+        getAll
     }
 }
 

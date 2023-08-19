@@ -14,7 +14,7 @@ export default function Navbar() {
   return (
     <nav className="navigation">
       <a href="/" className="brand-name">
-        Mood Master
+        Mood Master <img className='logo-navbar' src='https://res.cloudinary.com/dez9y1otk/image/upload/v1692394945/MonokuApp/logo-sin-fondo-bg_b1qkop.png' alt=''/>
       </a>
       <button
         className="hamburger"
@@ -38,16 +38,16 @@ export default function Navbar() {
       <div className={isNavExpanded ? "navigation-menu expanded" : "navigation-menu" }>
         <ul>
           <li>
-            <a href="/home">Inicio {elementInicio}</a>
+            <a href="/home">{elementInicio}</a>
           </li>
           <li>
-            <a href="/registros">Registros {elementRegistro}</a>
+            <a href="/registros">{elementRegistro}</a>
           </li>
           <li>
-            <a href="/">Estadísticas {elementEstadistica}</a>
+            <a href="/estadistica">{elementEstadistica}</a>
           </li>
           <li>
-            <a href="/profile">Perfil {elementUser}</a>
+            <a href="/profile">{elementUser}</a>
           </li>
         </ul>
       </div>

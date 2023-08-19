@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import '../../style/FormEntradaStyle.css'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import EmotionGroup from '../Emotions/EmotionGroup';
 import { EntradasContext } from '../../contexts/EntradasContext';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -11,6 +12,9 @@ registerLocale('es', es)
 function EntradaForm() {
     const { add } = useContext(EntradasContext);
     const [startDate, setStartDate] = useState(new Date());
+    const [emotion, setEmotion] = useState('');
+
+    const handleEmotionSelected = (event) => setEmotion(event.target.value)
 
     return (
         <Formik
@@ -26,7 +30,9 @@ function EntradaForm() {
             }}
             onSubmit={
                 (values, { setSubmitting })=> {
-                    add(values.title, values.message, values.date);
+                    console.log(startDate)
+                    const date = new Intl.DateTimeFormat('es-CO').format(startDate);
+                    add(values.title, values.message, date, emotion);
                     setSubmitting(false);
                     values.title = '';
                     values.message = '';
@@ -46,11 +52,8 @@ function EntradaForm() {
                             <DatePicker
                                 locale="es"
                                 value={startDate}
-                                selected={startDate} 
-                                onChange={(date) => {
-                                    setStartDate(date);
-                                    console.log(date);
-                                }}
+                                selected={startDate}
+                                onChange={(date) => { setStartDate(date)}}
                             />
                             </label>
                         </div>
@@ -59,8 +62,11 @@ function EntradaForm() {
                             <Field as='textarea' name="message" placeholder="¿Cómo te sientes hoy"/>
                             <ErrorMessage name='message' component="p" />
                         </div>
+                        <>
+                            <EmotionGroup handleEmotion={handleEmotionSelected} />
+                        </>
                         <button type="submit" disabled={isSubmitting}>
-                            {isSubmitting ? 'Guardando...' : 'Guardar'}
+                            {isSubmitting ? 'Guardando...' : 'Guardar Entrada'}
                         </button>
                     </Form>
                 )

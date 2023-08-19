@@ -44,11 +44,15 @@
 
 .form [type="submit"]{
     border-radius: 5px;
-    background-color: var(--blueMedium);
-    color: #ffff;
-    font-size: 1rem;
-    font-weight: 600;
+    background-color: var(--pinkColor);
+    color: var(--white);
+    font-size: 1.25rem;
+    font-weight: bold;
     cursor: pointer;
+    border: none;
+    padding: 0.25rem;
+    width: fit-content;
+    margin: auto;
 }
 
 .divEntrada{
