@@ -1,20 +1,18 @@
-import { useState } from 'react';
-import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';
+import React from 'react'
+import Fechas from '../components/Estadisticas/Fechas'
+import Grafico from '../components/Estadisticas/Grafico'
+import { EntradasProvider } from '../contexts/EntradasContext'
 
 const Estadistica = () => {
-    const [value, onChange] = useState(new Date(2023, 2, 12));
-
-    const handleDateChange = (value) => {
-        const date = new Intl.DateTimeFormat('es-CO').format(value);
-        console.log(date)
-    }
-
-    return (
+  return (
+    <EntradasProvider>
       <div>
-        <Calendar onChange={handleDateChange} value={value} />
+        <Fechas />
       </div>
-    );
-  }
+        <Grafico/>
+    </EntradasProvider>
 
-  export default Estadistica
+  )
+}
+
+export default Estadistica

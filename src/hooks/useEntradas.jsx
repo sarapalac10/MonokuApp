@@ -4,31 +4,42 @@ import { createReview } from "../utils/chat";
 
 function useEntradas(){
     const [entradas, setEntradas] = useState([]);
+    const [error, setError] = useState('')
+    const [show, setShow] = useState(false);
+
 
     useEffect(() => {
+      setShow(false)
+      setError('')
       getAll()
     }, [])
 
     function getAll() {
-      supabase.from('emotion-entries').select().order('id').then(({data}, error) => {
-        console.log('Data: ', data)
-        console.log('Error: ', error)
-        setEntradas(data)
-      })
+      supabase.from('emotion-entries').select().order('id').then(({data}) => setEntradas(data))
+    }
+
+    async function checkDate(date) {
+      const { data } = await supabase.from('emotion-entries').select('*').eq('date', date)
+      if (data.length > 0) {
+        setShow(true)
+        setError('Ya realizaste el registro de este día')
+        return false
+      }
+      setShow(false)
+      setError('')
+      return true
     }
 
     function add(title, message, date, emotion) {
-        const entradaObj = { title, message, date, emotion };
-        // createReview(message).then(response => console.log(response))
-        supabase.from('emotion-entries').insert(entradaObj).single().then((data, error) => {
-          console.log('Data: ', data)
-          console.log('Error: ', error)
+        const description = `Hoy me siento: ${message}` 
+        createReview(message).then(response => {
+          const analysis = response
+          const entradaObj = { title, message: description, date, emotion, analysis: `Análisis: ${analysis}` };
+          supabase.from('emotion-entries').insert(entradaObj).single().then(() => setEntradas([ entradaObj, ...entradas]))
         })
-        setEntradas([ entradaObj, ...entradas]);
     }
 
     function remove(id){
-      console.log(id)
       supabase
         .from('emotion-entries')
         .delete()
@@ -42,7 +53,10 @@ function useEntradas(){
         entradas,
         add,
         remove,
-        getAll
+        getAll,
+        checkDate,
+        error,
+        show
     }
 }
 

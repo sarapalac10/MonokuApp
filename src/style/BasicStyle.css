@@ -47,6 +47,10 @@ a{
 }
 
 /*Inicio */
+#root {
+    position: relative;
+    height: 100vh;
+}
 .imagen-inicio{
     width: 200px;
     margin: auto;

@@ -12,9 +12,10 @@ const EntradasList = () => {
         {
           entradas.map(entrada =>
           <Entrada
-            key={entrada.created_at}
+            key={entrada.key}
             title={entrada.title}
             message={entrada.message}
+            analysis={entrada.analysis}
             date={entrada.date}
             id={entrada.id}
             emotion={entrada.emotion}

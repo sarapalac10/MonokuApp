@@ -4,12 +4,13 @@ import './style/BasicStyle.css';
 
 import Profile from './views/Profile';
 import { useAuth0 } from "@auth0/auth0-react";
-import { Route, Routes, BrowserRouter } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Home from './views/Home';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import Registros from './views/Registros';
 import Estadistica from './views/Estadistica';
+import ProtectedRoute from './components/ProtectedRoute';
 
 const App = () => {
   const { isLoading, error } = useAuth0();
@@ -27,21 +28,21 @@ const App = () => {
   }
 
   return (
-    <BrowserRouter>
-      <div className="initContainer">
+    <>
+          
+        <div className="initContainer">
         <Navbar />
-        <>
-          <Routes>
+        <section>
+        <Routes>
             <Route path="/" exact element={<Home/>} />
-            <Route path="/profile" exact element={<Profile/>} />
-            <Route path="/registros" exact element={<Registros/>} />
-            <Route path="/estadistica" exact element={<Estadistica/>} />
-            {/* <Route path="/" exact element={</>} /> */}
+            <Route path="/profile" exact element={<ProtectedRoute component={Profile}/>} />
+            <Route path="/registros" exact element={<ProtectedRoute component={Registros} />} />
+            <Route path="/estadistica" exact element={<ProtectedRoute component={Estadistica}/>} />
           </Routes>
-        </>
+        </section>
         <Footer />
       </div>
-    </BrowserRouter>
+    </>
   );
 
 }

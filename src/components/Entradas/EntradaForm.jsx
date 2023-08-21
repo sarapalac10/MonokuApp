@@ -3,6 +3,7 @@ import '../../style/FormEntradaStyle.css'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import EmotionGroup from '../Emotions/EmotionGroup';
 import { EntradasContext } from '../../contexts/EntradasContext';
+import Alert from 'react-bootstrap/Alert';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { registerLocale } from  "react-datepicker";
@@ -10,7 +11,7 @@ import es from 'date-fns/locale/es';
 registerLocale('es', es)
 
 function EntradaForm() {
-    const { add } = useContext(EntradasContext);
+    const { add, checkDate, error, show } = useContext(EntradasContext);
     const [startDate, setStartDate] = useState(new Date());
     const [emotion, setEmotion] = useState('');
 
@@ -29,13 +30,16 @@ function EntradaForm() {
                 return errors;
             }}
             onSubmit={
-                (values, { setSubmitting })=> {
-                    console.log(startDate)
+                async (values, { setSubmitting }) => {
                     const date = new Intl.DateTimeFormat('es-CO').format(startDate);
-                    add(values.title, values.message, date, emotion);
-                    setSubmitting(false);
-                    values.title = '';
-                    values.message = '';
+                    const isValidDate = await checkDate(date)
+                    if (isValidDate) {
+                        add(values.title, values.message, date, emotion);
+                        values.title = '';
+                        values.message = '';
+                    } else {
+                        setSubmitting(false);
+                    }
                 }
             }
         >
@@ -68,6 +72,11 @@ function EntradaForm() {
                         <button type="submit" disabled={isSubmitting}>
                             {isSubmitting ? 'Guardando...' : 'Guardar Entrada'}
                         </button>
+                        {show && <Alert variant="danger" >
+        <Alert.Heading>Error</Alert.Heading>
+        <p>{error}</p>
+      </Alert> }
+                        
                     </Form>
                 )
             }

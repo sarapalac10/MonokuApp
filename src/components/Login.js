@@ -5,17 +5,28 @@ import Button from 'react-bootstrap/Button';
 const Login = () => {
     const {
         user,
-        isAuthenticated,
         loginWithRedirect,
         logout,
+        isAuthenticated
     } = useAuth0();
 
-    const logoutWithRedirect = () =>
-    logout({
-        logoutParams: {
-        returnTo: window.location.origin,
-        }
-    });
+    const logoutWithRedirect = () => {
+
+        localStorage.removeItem('token')
+        logout({
+            logoutParams: {
+            returnTo: window.location.origin,
+            }
+        })
+        console.log(isAuthenticated);
+
+    };
+
+    const handleLogin = async () => {
+        await loginWithRedirect({})
+        console.log(isAuthenticated);
+
+    }
 
   return (
     <>
@@ -37,7 +48,7 @@ const Login = () => {
         </div>
         </>
     :
-        <Button variant="primary" onClick={() => loginWithRedirect({})} >
+        <Button variant="primary" onClick={() => handleLogin()} >
             Log in
         </Button>
     }

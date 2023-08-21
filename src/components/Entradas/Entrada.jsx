@@ -4,7 +4,7 @@ import EntradaDeleteBtn from './EntradaDeleteBtn'
 import Badge from 'react-bootstrap/Badge';
 import { handleImages } from '../../utils/handleImages';
 
-const Entrada = ({title, message, id, date, emotion}) => {
+const Entrada = ({title, message, id, date, emotion, analysis}) => {
   return (
     <article className='entradaIndividual d-flex p-3 rounded'>
       <header className='d-flex justify-content-end'>
@@ -16,6 +16,7 @@ const Entrada = ({title, message, id, date, emotion}) => {
           <img src={handleImages(emotion)} alt='Emotion' />
         </div>
         <p className='cuerpoEntrada'>{message}</p>
+        <p className='cuerpoEntrada'>{analysis}</p>
       </main>
       <footer>
         <EntradaDeleteBtn id={id} />

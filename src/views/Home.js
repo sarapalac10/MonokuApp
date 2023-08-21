@@ -1,8 +1,6 @@
 import React from "react";
 import '../style/HomeStyle.css'
 import Login from "../components/Login";
-import List from "../components/Emotions/List";
-
 
 const Home = () => (
   <div className="initContainer">
@@ -12,7 +10,6 @@ const Home = () => (
     </div>
     <hr />
     <Login />
-    <List />
 
   </div>
 );

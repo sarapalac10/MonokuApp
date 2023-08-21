@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { Auth0Provider } from '@auth0/auth0-react';
 import App from './App';
+import Auth0ProviderWithRedirectCallback from './AuthProviders';
+import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <Auth0Provider
+  <BrowserRouter>
+  <Auth0ProviderWithRedirectCallback
     domain="dev-osl69701.us.auth0.com"
     clientId="yDA3B6LuH0PEYkhtOtGgwWLG8vrkH0El"
     authorizationParams={{
@@ -13,5 +15,7 @@ root.render(
     }}
   >
     <App />
-  </Auth0Provider>
+  </Auth0ProviderWithRedirectCallback>
+  </BrowserRouter>
+  
 );
