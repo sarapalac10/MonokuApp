@@ -25,6 +25,7 @@
 .texto-login{
   margin: 1rem 0;
   font-size: 1rem;
+  text-align: justify;
 }
 
 .button-inicio, .button-salida{
@@ -36,6 +37,13 @@
   border: none;
   padding: 0.45rem;
   width: fit-content;
+  margin: auto;
+}
+
+.titulo-inicio{
+  display: flex;
+  flex-direction: column;
+  align-items: center
 }
 
 @media screen and (max-width: 768px) {
@@ -50,5 +58,9 @@
   .initContainer{
     display: flex;
     align-items: stretch;
+  }
+
+  .imagenInicio {
+    height: 15rem;
   }
 }

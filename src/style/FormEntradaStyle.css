@@ -23,6 +23,13 @@
 .cuerpoEntrada{
     padding: 1rem;
     font-weight: normal;
+    font-size: 1rem;
+}
+
+.cuerpoAnalisis{
+    padding: 1rem;
+    font-weight: normal;
+    font-size: 1rem;
 }
 
 .form{
@@ -60,3 +67,4 @@
     margin: 0 auto;
     padding-top: 2rem;
 }
+

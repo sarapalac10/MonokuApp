@@ -1,10 +1,9 @@
 import '../style/NavbarStyle.css';
 import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFileLines, faCalendarDays, faUser, faChartLine,  faHouse } from '@fortawesome/free-solid-svg-icons'
+import { faFileLines, faUser, faChartLine,  faHouse } from '@fortawesome/free-solid-svg-icons'
 
 const elementRegistro = <FontAwesomeIcon icon={faFileLines} />
-// const elementCalendario = <FontAwesomeIcon icon={faCalendarDays} />
 const elementUser = <FontAwesomeIcon icon={faUser} />
 const elementEstadistica = <FontAwesomeIcon icon={faChartLine} />
 const elementInicio = <FontAwesomeIcon icon={faHouse} />

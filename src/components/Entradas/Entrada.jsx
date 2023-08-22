@@ -16,7 +16,7 @@ const Entrada = ({title, message, id, date, emotion, analysis}) => {
           <img src={handleImages(emotion)} alt='Emotion' />
         </div>
         <p className='cuerpoEntrada'>{message}</p>
-        <p className='cuerpoEntrada'>{analysis}</p>
+        <p className='cuerpoAnalisis'>{analysis}</p>
       </main>
       <footer>
         <EntradaDeleteBtn id={id} />

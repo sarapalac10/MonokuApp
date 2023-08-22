@@ -1,11 +1,10 @@
 import React from "react";
-import Table from "react-bootstrap/Table";
 import "../../style/ConvencionesStyle.css";
 
 function Convenciones() {
   return (
     <div className="container-convenciones">
-        <Table bordered size="sm" responsive="sm" style={{ width: 'fit-content'}}>
+        <table bordered size="sm" responsive="sm" style={{ width: 'fit-content'}}>
         <thead>
             <tr>
             <th>Escala</th>
@@ -70,7 +69,7 @@ function Convenciones() {
             </tr>
         </tbody>
 
-        </Table>
+        </table>
         <p className="texto-convenciones">Las convenciones te permiten tener una referencia para interpretar la información de la gráfica, identificar los estados en el calendario y sacar el máximo provecho de todas las características de Mood Master</p>
     </div>
   );

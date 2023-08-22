@@ -44,8 +44,14 @@
     font-size: 1rem;
     background-color: var(--pinkColor);
     padding: 0.25rem;
-    margin: 2rem;
+    align-items: center;
     border-radius: 10px;
+}
+
+.texto-convenciones:hover{
+    box-shadow: 0 3px 4px 0 var(--fucsiaColor);
+    opacity: 0.5;
+    transform:scale(1.15);
 }
 
 .container-convenciones{
@@ -57,6 +63,15 @@
     padding: 2rem 0;
 }
 
+.container-convenciones table, th, td{
+    border: 1px solid var(--fucsiaColor);
+    padding: 0.35rem;
+}
+
+.container-convenciones table{
+    background-color: var(--pinkColor);
+}
+
 @media screen and (max-width: 768px) {
     .container-convenciones{
         flex-direction: column;
@@ -64,6 +79,10 @@
         margin-left: 2rem;
     }
     .contenedor-estadisticas{
-        margin-left: 2rem;
+        margin-left: 1rem;
+    }
+    .texto-convenciones{
+        margin: 1rem 0;
     }
 }
+

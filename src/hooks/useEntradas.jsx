@@ -7,7 +7,6 @@ function useEntradas(){
     const [error, setError] = useState('')
     const [show, setShow] = useState(false);
 
-
     useEffect(() => {
       setShow(false)
       setError('')
@@ -38,6 +37,12 @@ function useEntradas(){
           supabase.from('emotion-entries').insert(entradaObj).single().then(() => setEntradas([ entradaObj, ...entradas]))
         })
     }
+
+    // function add(title, message, date, emotion) {
+    //   const description = `Hoy me siento: ${message}`
+    //   const entradaObj = { title, message: description, date, emotion, analysis: '' };
+    //   supabase.from('emotion-entries').insert(entradaObj).single().then(() => setEntradas([ entradaObj, ...entradas]))
+    // }
 
     function remove(id){
       supabase

@@ -5,7 +5,7 @@ import Tarjetas from "../components/Inicio/Tarjetas";
 
 const Home = () => (
   <div className="initContainer">
-    <div>
+    <div className="titulo-inicio">
       <img className='imagenInicio' src='https://res.cloudinary.com/dez9y1otk/image/upload/v1692334518/MonokuApp/sin-fondo-bg_naihy2.png' alt='fondo-Mood-Master' />
       <h2 className="sloganInicio">"Emociones bajo control, vida en plenitud"</h2>
     </div>

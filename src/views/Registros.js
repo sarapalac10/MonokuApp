@@ -9,7 +9,6 @@ const Registros = () => {
     <div className="divEntrada">
       <EntradasProvider>
         <EntradaForm />
-
         <EntradasList />
       </EntradasProvider>
 
