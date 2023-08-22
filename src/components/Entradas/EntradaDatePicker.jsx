@@ -8,10 +8,10 @@ registerLocale('es', es)
 function EntradaDatePicker() {
     const [startDate, setStartDate] = useState(new Date());
     return (
-      <DatePicker 
+      <DatePicker
         locale="es"
         value={startDate}
-        selected={startDate} 
+        selected={startDate}
         onChange={(date) => {
           setStartDate(date);
           console.log(date);

@@ -1,11 +1,34 @@
 .sad {
-    background: red;
+    background: var(--sadColor);
+}
+
+.angry{
+    background: var(--angryColor);
+}
+
+.meh{
+    background: var(--mehColor);
+}
+
+.happy{
+    background: var(--happyColor);
 }
 
 .brilliant {
-    background: yellow;
+    background: var(--brilliantColor);
 }
 
 .default {
     background: #1087ff;
+}
+
+.titulos-estadistica{
+    color: var(--fucsiaColor);
+    padding: 1rem 0;
+}
+
+@media screen and (max-width: 768px) {
+    .contenedor-grafico{
+        width: 10rem;
+    }
 }

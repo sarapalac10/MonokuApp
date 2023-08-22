@@ -29,7 +29,6 @@ const App = () => {
 
   return (
     <>
-          
         <div className="initContainer">
         <Navbar />
         <section>

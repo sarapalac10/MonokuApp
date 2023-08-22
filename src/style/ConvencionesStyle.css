@@ -1,0 +1,69 @@
+#circuloSad {
+        border: 3px solid #ddd;
+        width: 2.5rem;
+        height: 2.55rem;
+        border-radius: 50%;
+        background: var(--sadColor);
+}
+
+#circuloAngry {
+        border: 3px solid #ddd;
+        width: 2.5rem;
+        height: 2.55rem;
+        border-radius: 50%;
+        background: var(--angryColor);
+}
+
+#circuloMeh {
+        border: 3px solid #ddd;
+        width: 2.5rem;
+        height: 2.55rem;
+        border-radius: 50%;
+        background: var(--mehColor);
+}
+
+#circuloFeliz {
+        border: 3px solid #ddd;
+        width: 2.5rem;
+        height: 2.55rem;
+        border-radius: 50%;
+        background: var(--happyColor);
+}
+
+#circuloSuperFeliz {
+        border: 3px solid #ddd;
+        width: 2.5rem;
+        height: 2.55rem;
+        border-radius: 50%;
+        background: var(--brilliantColor);
+}
+
+.texto-convenciones{
+    height: fit-content;
+    width: 20rem;
+    font-size: 1rem;
+    background-color: var(--pinkColor);
+    padding: 0.25rem;
+    margin: 2rem;
+    border-radius: 10px;
+}
+
+.container-convenciones{
+    display: flex;
+    flex-direction: row;
+}
+
+.contenedor-estadisticas{
+    padding: 2rem 0;
+}
+
+@media screen and (max-width: 768px) {
+    .container-convenciones{
+        flex-direction: column;
+        width: fit-content;
+        margin-left: 2rem;
+    }
+    .contenedor-estadisticas{
+        margin-left: 2rem;
+    }
+}

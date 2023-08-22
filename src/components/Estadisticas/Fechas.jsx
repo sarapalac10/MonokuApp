@@ -43,9 +43,7 @@ const Fechas = () => {
 
     return (
       <div>
-        <h1>Calendario</h1>
-        <h3>Así podrás ver la evolución diaria de tus emociones.</h3>
-
+        <h1 className='titulos-estadistica'>Calendario</h1>
         <Calendar tileClassName={handleDateColor} value={rango} />
       </div>
     );

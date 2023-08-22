@@ -1,15 +1,14 @@
 :root{
-    --black: #020202 ;
+    --black: #020202;
     --white: #FFFFFF;
-    --blueLight: #ADCAD6;
-    --greenMedium: #BAF2BB;
-    --greenLight: #BAF2D8;
-    --blueMedium: #BAD7F2;
-    --pinkMedium: #F2BAC9;
-    --yellowMedium: #F2E2BA;
     --pinkColor: #f8cbe7;
     --purpleColor: #b1bae8;
     --fucsiaColor: #f92b9c;
+    --sadColor: #00bbf9;
+    --angryColor: #f94144 ;
+    --mehColor:#f4d35e;
+    --happyColor: #aaf683;
+    --brilliantColor: #60d394;
 }
 
 html, body{

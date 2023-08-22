@@ -11,15 +11,3 @@ export const handleImages = (mode) => {
 
     return images[mode]
 }
-
-export const handleEmotion= (index) => {
-    const emotions = {
-        [HAPPY]: 4,
-        [SAD]: 1,
-        [MEH]: 3,
-        [BRILLIANT]: 5,
-        [ANGRY]: 2
-    }
-
-    return emotions[index]
-}

@@ -73,10 +73,9 @@ function EntradaForm() {
                             {isSubmitting ? 'Guardando...' : 'Guardar Entrada'}
                         </button>
                         {show && <Alert variant="danger" >
-        <Alert.Heading>Error</Alert.Heading>
-        <p>{error}</p>
-      </Alert> }
-                        
+                        <Alert.Heading>Error</Alert.Heading>
+                            <p>{error}</p>
+                        </Alert> }
                     </Form>
                 )
             }

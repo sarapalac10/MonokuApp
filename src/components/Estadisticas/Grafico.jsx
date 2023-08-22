@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
-import { LineChart, Line, XAxis, YAxis, Tooltip } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import { EntradasContext } from '../../contexts/EntradasContext';
-import { handleEmotion } from '../../utils/handleImages';
+import { handleEmotion } from '../../utils/handleEmotions';
+import '../../style/Fechas.css'
 
 const handleDayWeek = (index) => {
   const days = {
@@ -40,25 +41,27 @@ const Grafico = () => {
     }
     return (
         <>
-            <h1>Gráfico</h1>
-            <h3>Así podrás ver la evolución de tus emociones</h3>
-
-            <LineChart
-            width={700}
-            height={300}
-            data={handleEntradas()}
-            margin={{
-                top: 5,
-                right: 30,
-                left: 20,
-                bottom: 5
-            }}
-            >
-            <XAxis dataKey="name" />
-            <YAxis dataKey="emotion" type="number" domain={['dataMin', 'dataMax']} label={{ value: 'Emociones', angle: -90, position: 'insideLeft', textAnchor: 'middle' }} />
-            <Tooltip />
-            <Line type="monotone" dataKey="emotion" stroke="#9c1b9a" />
-            </LineChart>
+            <h1 className='titulos-estadistica'>Gráfico</h1>
+            <div style={{ width: "100%", height: 300 }}>
+              <ResponsiveContainer>
+                <LineChart
+                width={700}
+                height={300}
+                data={handleEntradas()}
+                margin={{
+                    top: 5,
+                    right: 30,
+                    left: 20,
+                    bottom: 5
+                }}
+                >
+                <XAxis dataKey="name" />
+                <YAxis dataKey="emotion" type="number" domain={['dataMin', 'dataMax']} label={{ value: 'Emociones', angle: -90, position: 'insideLeft', textAnchor: 'middle' }} />
+                <Tooltip />
+                <Line type="monotone" dataKey="emotion" stroke="#9c1b9a" />
+                </LineChart>
+              </ResponsiveContainer>
+            </div>
         </>
     );
 }

@@ -1,0 +1,27 @@
+.tarjetas-container{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin: 2rem 0rem;
+}
+
+.tarjetas-individuales{
+    width: 18rem;
+    border: 1px solid var(--fucsiaColor);
+}
+
+.tarjetas-individuales:hover{
+    background: var(--pinkColor);
+}
+
+@media screen and (max-width: 768px) {
+    .tarjetas-container{
+        flex-direction: column;
+        gap: 1rem;
+        margin: 2rem 0rem;
+    }
+
+    .tarjetas-individuales{
+        width: 15rem;
+    }
+}

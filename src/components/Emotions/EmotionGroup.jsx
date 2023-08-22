@@ -3,7 +3,7 @@ import { HAPPY, SAD, MEH, BRILLIANT, ANGRY } from '../../utils/constants';
 
 const EmotionGroup = (props) => {
     return (<div className='d-flex justify-content-center flex-row'>
-        {[ HAPPY, SAD, MEH, BRILLIANT, ANGRY].map((mode, index) => (
+        {[ SAD, ANGRY, MEH, HAPPY, BRILLIANT].map((mode, index) => (
             <Emotion selectEmotion={props.handleEmotion} key={index} mode={mode} />
         ))}
     </div>)

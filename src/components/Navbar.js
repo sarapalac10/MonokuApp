@@ -38,7 +38,7 @@ export default function Navbar() {
       <div className={isNavExpanded ? "navigation-menu expanded" : "navigation-menu" }>
         <ul>
           <li>
-            <a href="/home">{elementInicio}</a>
+            <a href="/">{elementInicio}</a>
           </li>
           <li>
             <a href="/registros">{elementRegistro}</a>
